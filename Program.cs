@@ -15,10 +15,10 @@
                 switch (Console.ReadLine())
                 {
                     case "1":
-                        UnitConversionMenu(); // Navigate to unit conversion
+                        UnitConversionMenu(); 
                         break;
                     case "2":
-                        RockClassificationMenu(); // Navigate to rock classification
+                        RockClassificationMenu(); 
                         break;
                     case "3":
                         exit = true; 
@@ -31,7 +31,7 @@
             }
         }
 
-        // Unit conversion logic
+        
         static void UnitConversionMenu()
         {
             Console.WriteLine("\n--- Unit Conversion ---");
@@ -44,7 +44,7 @@
             double amount, result = 0;
             string fromUnit = "", toUnit = "";
 
-            // Determine conversion category
+
             switch (type)
             {
                 case "1":
@@ -63,7 +63,7 @@
                     break;
                 case "3":
                     Console.WriteLine("Temperature conversion:");
-                    fromUnit = "F"; // Fixed conversion for Fahrenheit to Celsius
+                    fromUnit = "F"; 
                     toUnit = "C";
                     break;
                 default:
@@ -78,18 +78,18 @@
                 return;
             }
 
-            // Perform the unit conversion
+            
             result = ConvertUnits(type, fromUnit, toUnit, amount);
 
             Console.WriteLine($"Converted amount: {result}\n");
         }
 
-        // Conversion logic for different unit types
+        
         static double ConvertUnits(string type, string fromUnit, string toUnit, double amount)
         {
             switch (type)
             {
-                case "1": // Length conversion
+                case "1": 
                     if (fromUnit == "inches" && toUnit == "yards") return amount / 36;
                     if (fromUnit == "inches" && toUnit == "miles") return amount / 63360;
                     if (fromUnit == "yards" && toUnit == "inches") return amount * 36;
@@ -97,11 +97,11 @@
                     if (fromUnit == "miles" && toUnit == "inches") return amount * 63360;
                     if (fromUnit == "miles" && toUnit == "yards") return amount * 1760;
                     break;
-                case "2": // Mass conversion
+                case "2": 
                     if (fromUnit == "oz" && toUnit == "lbs") return amount / 16;
                     if (fromUnit == "lbs" && toUnit == "oz") return amount * 16;
                     break;
-                case "3": // Temperature conversion (Fahrenheit to Celsius)
+                case "3": 
                     if (fromUnit == "F" && toUnit == "C") return (amount - 32) * 5 / 9;
                     break;
             }
@@ -109,12 +109,12 @@
             return 0;
         }
 
-        // Rock classification process
+       
         static void RockClassificationMenu()
         {
             Console.WriteLine("\n--- Rock Classification ---");
 
-            // Collect inputs related to rock samples
+            
             Console.Write("Enter the number of identical rock samples found: ");
             if (!int.TryParse(Console.ReadLine(), out int numSamples))
             {
@@ -154,7 +154,7 @@
 
             Console.WriteLine($"Initial rock classification points: {points}\n");
 
-            // Allow user to adjust points
+           
             double originalPoints = points;
             double totalAdjustment = 0;
             bool satisfied = false;
@@ -176,7 +176,7 @@
                     continue;
                 }
 
-                // Ensure adjustment doesn't exceed original points
+                
                 if (Math.Abs(adjustment) > originalPoints)
                 {
                     Console.WriteLine("Error: The adjustment cannot be greater than the original point value.");
@@ -190,7 +190,7 @@
                 }
             }
 
-            // Final output
+          
             Console.WriteLine($"Final rock classification points: {points}\n");
             Console.WriteLine($"Total adjustment made: {totalAdjustment}\n");
         }
