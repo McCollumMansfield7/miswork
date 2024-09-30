@@ -67,7 +67,7 @@
                     toUnit = "C";
                     break;
                 default:
-                    Console.WriteLine("Invalid type selection.");
+                    Console.WriteLine("Invalid selection.");
                     return;
             }
 
@@ -161,7 +161,7 @@
 
             while (!satisfied)
             {
-                Console.Write("Would you like to adjust the score? (yes/no): ");
+                Console.Write("Would you like to adjust score? (yes/no): ");
                 string response = Console.ReadLine();
                 if (response.ToLower() == "no")
                 {
@@ -169,17 +169,17 @@
                     break;
                 }
 
-                Console.Write("Enter the point adjustment (positive or negative value): ");
+                Console.Write("Enter point adjustment (positive or negative value): ");
                 if (!double.TryParse(Console.ReadLine(), out double adjustment))
                 {
-                    Console.WriteLine("Invalid adjustment value.");
+                    Console.WriteLine("Invalid change .");
                     continue;
                 }
 
                 
                 if (Math.Abs(adjustment) > originalPoints)
                 {
-                    Console.WriteLine("Error: The adjustment cannot be greater than the original point value.");
+                    Console.WriteLine("Error: The change can't be greater than original value.");
                 }
                 else
                 {
